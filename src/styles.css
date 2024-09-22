@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import "ngx-toastr/toastr";
+:root{
+  --primary-color:#026467;
+  --secondary-color:#e5f5ea;
+  --body-text-color:#596392;
+  --navBar-footer-color:#f9f9f9;
+}
+
+
+body{
+  font-family: 'Roboto','sans-serif';
+  font-size: 18px;
+  color:var(--body-text-color);
+  display: contents;
+}
+.site-logo{
+  border-radius: 20px;
+  text-decoration: none;
+  color: #026467;
+  padding: 5px 20px;
+  background-color:#e5f5ea;
+}
+.nav-link{
+  color: #026467;
+}
+.box-shadow{
+  border: none;
+  box-shadow: 0 0 33px -10px rgba(71,114,254,0.3);
+
+}
+input[type="text"],input[type="email"]{
+  height: 60px;
+  padding-left:20px;
+  font-size: 13px;
+  width: 100%;
+}
+.btn-them{
+  height:58px;
+  border:none;
+  font-size: 16px;
+  background-color: #026467;
+  color: #f9f9f9;
+}
+.bg-theme{
+  background-color:var(--primary-color);
+}
+.bg-secondary-theme{
+  background-color:var(--secondary-color) ;
+}
+.text-theme-primary{
+  color:var(--primary-color);
+}

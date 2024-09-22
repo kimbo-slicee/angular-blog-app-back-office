@@ -1,0 +1,5 @@
+h3{
+  color:var(--primary-color);
+  font-family: monospace;
+  font-weight: bold;
+}
