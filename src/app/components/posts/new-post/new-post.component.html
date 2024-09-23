@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="rwo">
+    <div class="col-md-12 text-center">
+      <h3 class="text-theme-primary ">Add New Post</h3>
+      <p class="mb-5">You Can add your new post Here</p>
+    </div>
+  </div>
+  <form [formGroup]="reactiveForm" (ngSubmit)="submitForm()" >
+    <div class="row">
+      <div class="col-md-7">
+        <div class="box-shadow p-2">
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" (keyup)="onTitleChange($event)" formControlName="title">
+          </div>
+          <div class="form-group">
+            <label>PermaLink</label>
+            <input type="text" class="form-control" formControlName="paramLink">
+          </div>
+          <div class="form-group">
+          <label>Excerpt</label>
+            <textarea cols="30" rows="10" class="form-control" formControlName="excerpt"></textarea>
+        </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="p-2 box-shadow ">
+        <div class="form-group">
+        <label>Please select a category </label>
+        <select class="form-select form-select-lg mb-3" aria-label="Large select example" formControlName="category">
+          <option disabled>chose Category</option>
+          <option value="{{category.data['category']}}"
+                  *ngFor="let category of categoryList , let i=index">{{category.data['category']}}</option>
+
+        </select>
+      </div>
+        <div class="form-group">
+          <img [src]="selectedImage" alt="Post-Image"
+               class="img-preview" >
+          <label>Add Image</label>
+          <input type="file" class="form-control" formControlName="image" accept="image/*" (change)="onFileSelected($event)">
+
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="row mt-3 ">
+      <div class="col-md-12">
+        <div class=" box-shadow p-2">
+          <div class="form-group">
+            <label>Content</label>
+            <angular-editor></angular-editor>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <button class="btn btn-success m-lg-3">Save Post</button>
+        <button class="btn btn-warning" type="button">Back to Post </button>
+      </div>
+    </div>
+  </form>
+</div>

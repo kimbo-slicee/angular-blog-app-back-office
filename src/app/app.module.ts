@@ -9,11 +9,15 @@ import { AngularFireModule } from '@angular/fire/compat';
 import {environment} from "../environments/environment.prod";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import { CategoriesComponent } from './components/categories/categories.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ToastNoAnimationModule, ToastrModule} from "ngx-toastr";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
-
+import {NewPostComponent} from "./components/posts/new-post/new-post.component";
+import {PostsListComponent} from "./components/posts/posts-list/posts-list.component";
+import {NgOptimizedImage} from "@angular/common";
+import {AngularEditorModule} from "@kolkov/angular-editor";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,6 +26,8 @@ import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
     FooterComponent,
     DashboardComponent,
     CategoriesComponent,
+    PostsListComponent,
+    NewPostComponent,
 
   ],
   imports: [
@@ -29,15 +35,17 @@ import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    ReactiveFormsModule,
     FormsModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    NgOptimizedImage,
+    AngularEditorModule,
+    HttpClientModule
 
 
-
-
-],
+  ],
   providers: [
     provideClientHydration()
   ],

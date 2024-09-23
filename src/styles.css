@@ -10,7 +10,7 @@
 
 body{
   font-family: 'Roboto','sans-serif';
-  font-size: 18px;
+  font-size: 14px;
   color:var(--body-text-color);
   display: contents;
 }

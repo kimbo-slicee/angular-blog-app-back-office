@@ -1,0 +1,25 @@
+form{
+  border-radius: 10px ;
+}
+input[type='text']{
+  font-size: 20px;
+}
+.box-shadow-from{
+  border:1px solid #f9f9f9 ;
+  box-shadow: 0 0 33px -10px #f9f9f9;
+}
+h3{
+  background: var(--secondary-color);
+  border-radius: 20px;
+  padding: 10px;
+}
+.img-preview{
+  height: 300px;
+  width: 100%;
+}
+input[formControlName="paramLink"]{
+  cursor: not-allowed;
+  caret-color: transparent;
+  background: rgba(105, 105, 105, 0.44);
+}
+
