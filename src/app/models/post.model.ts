@@ -3,10 +3,10 @@ import {Category} from "./catecorie.model";
 export interface PostModel {
   id?:string;
   title:string;
-  parmaLink:string;
+  permaLink:string;
   excerpt:string;
   category:{
-    categoryIs:string,
+    categoryId:string,
     categoryName:string,
   };
   postImagePath:string;

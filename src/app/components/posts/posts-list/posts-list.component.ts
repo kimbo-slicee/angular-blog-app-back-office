@@ -20,4 +20,7 @@ export class PostsListComponent implements OnInit{
     }
 
 
+  deletePost(id:string, datum: any) {
+    this.postServices.deleteImage(id,datum);
+  }
 }

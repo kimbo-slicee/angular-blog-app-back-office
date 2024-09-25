@@ -19,6 +19,7 @@ import {NgOptimizedImage} from "@angular/common";
 import {AngularEditorModule} from "@kolkov/angular-editor";
 import {HttpClientModule} from "@angular/common/http";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import { PostDetailsComponent } from './components/post-details/post-details.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {AngularFireStorageModule} from "@angular/fire/compat/storage";
     CategoriesComponent,
     PostsListComponent,
     NewPostComponent,
+    PostDetailsComponent,
 
   ],
   imports: [
