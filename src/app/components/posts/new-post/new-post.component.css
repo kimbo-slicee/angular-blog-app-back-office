@@ -14,12 +14,8 @@ h3{
   padding: 10px;
 }
 .img-preview{
-  height: 300px;
-  width: 100%;
-}
-input[formControlName="paramLink"]{
-  cursor: not-allowed;
-  caret-color: transparent;
-  background: rgba(105, 105, 105, 0.44);
+  height: 250px;
+  width: 95%;
+
 }
 

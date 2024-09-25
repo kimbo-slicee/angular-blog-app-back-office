@@ -1,7 +1,11 @@
 <div class="container">
+  <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="reactiveForm.invalid">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>
+  </div>
   <div class="rwo">
     <div class="col-md-12 text-center">
-      <h3 class="text-theme-primary ">Add New Post</h3>
+      <h3 class="text-theme-primary ">Add New PostModel</h3>
       <p class="mb-5">You Can add your new post Here</p>
     </div>
   </div>
@@ -11,35 +15,58 @@
         <div class="box-shadow p-2">
           <div class="form-group">
             <label>Title</label>
-            <input type="text" class="form-control" (keyup)="onTitleChange($event)" formControlName="title">
+            <input type="text" class="form-control" (keyup)="onTitleChange($event)" formControlName="title"
+                   [ngClass]="{
+                   'is-invalid':reactiveForm.get('title')?.touched && reactiveForm.get('title')?.invalid,
+                   'is-valid':!reactiveForm.get('title')?.touched && !reactiveForm.get('title')?.invalid
+
+                   }">
+            <small class="text-danger"
+                   *ngIf="reactiveForm.get('title')?.touched && reactiveForm.get('title')?.invalid">Title Required
+            </small>
           </div>
           <div class="form-group">
-            <label>PermaLink</label>
-            <input type="text" class="form-control" formControlName="paramLink">
+            <label>ParmaLink</label>
+            <input type="text" class="form-control" formControlName="paramLink" >
           </div>
           <div class="form-group">
           <label>Excerpt</label>
-            <textarea cols="30" rows="10" class="form-control" formControlName="excerpt"></textarea>
-        </div>
+            <textarea cols="30" rows="10" class="form-control" formControlName="excerpt" [ngClass]="{'is-invalid':reactiveForm.get('excerpt')?.touched && reactiveForm.get('excerpt')?.invalid}"></textarea>
+            <small class="text-danger"
+                   *ngIf="reactiveForm.get('excerpt')?.touched && reactiveForm.get('excerpt')?.invalid">Excerpt
+              Required</small>
+
+          </div>
         </div>
       </div>
       <div class="col-md-5">
         <div class="p-2 box-shadow ">
         <div class="form-group">
         <label>Please select a category </label>
-        <select class="form-select form-select-lg mb-3" aria-label="Large select example" formControlName="category">
+        <select class="form-select form-select-lg mb-3"
+                formControlName="category"
+                [ngClass]="{'is-invalid':reactiveForm.get('category')?.touched && reactiveForm.get('category')?.invalid}"
+        >
           <option disabled>chose Category</option>
-          <option value="{{category.data['category']}}"
+          <option value="{{category.id}}-{{category.data['category']}}"
                   *ngFor="let category of categoryList , let i=index">{{category.data['category']}}</option>
 
         </select>
+          <small class="text-danger"
+                 *ngIf="reactiveForm.get('category')?.touched && reactiveForm.get('category')?.invalid">Category
+            Required</small>
       </div>
-        <div class="form-group">
-          <img [src]="selectedImage" alt="Post-Image"
-               class="img-preview" >
+        <div class="form-group text-center">
+          <img [src]="selectedImage" alt="PostModel-Image"
+               class="img-preview img-fluid" >
           <label>Add Image</label>
-          <input type="file" class="form-control" formControlName="image" accept="image/*" (change)="onFileSelected($event)">
-
+          <input type="file" class="form-control" formControlName="image" accept="image/*"
+                 (change)="onFileSelected($event)"
+                 [ngClass]="{'is-invalid':reactiveForm.get('image')?.touched && reactiveForm.get('image')?.invalid}"
+          >
+          <small class="text-danger"
+                 *ngIf="reactiveForm.get('image')?.touched && reactiveForm.get('image')?.invalid">Image
+            Required</small>
         </div>
       </div>
       </div>
@@ -49,15 +76,21 @@
         <div class=" box-shadow p-2">
           <div class="form-group">
             <label>Content</label>
-            <angular-editor></angular-editor>
+            <angular-editor formControlName="content"
+                            placeholder="Add Your Content Here "
+                            [ngClass]="{'is-invalid':reactiveForm.get('content')?.touched && reactiveForm.get('content')?.invalid}"
+            ></angular-editor>
+            <small class="text-danger"
+                   *ngIf="reactiveForm.get('content')?.touched && reactiveForm.get('content')?.invalid">Content
+              Required</small>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12 text-center">
-        <button class="btn btn-success m-lg-3">Save Post</button>
-        <button class="btn btn-warning" type="button">Back to Post </button>
+        <button class="btn btn-success m-lg-3" [disabled]="reactiveForm.invalid">Save PostModel</button>
+        <button class="btn btn-warning" type="button" >Back to PostModel </button>
       </div>
     </div>
   </form>

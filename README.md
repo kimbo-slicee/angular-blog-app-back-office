@@ -1,7 +1,7 @@
 # Main Components for the Back end Dashboard 
 1. Login Component. 
 2. Category Component. 
-3. Post Component.
+3. PostModel Component.
 4. Subscription Component.
 5. Comments Component.
 6. DashBord Component.

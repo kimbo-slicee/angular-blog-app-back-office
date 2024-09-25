@@ -11,5 +11,34 @@
       </div>
     </div>
   </div>
-<!--<app-new-post></app-new-post>-->
+  <div class="row mt-5 ">
+    <div class="col-md-12 m-auto">
+      <table class="table">
+        <thead class="bg-success-subtle">
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Image</th>
+          <th scope="col">title</th>
+          <th scope="col">excerpt</th>
+          <th scope="col">category</th>
+          <th scope="col">Date</th>
+          <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let post of posts , let i=index">
+          <th>{{i+1}}</th>
+          <th><img [src]="post.data['postImagePath']" alt="post image" width="200px" height="100px"></th>
+          <th>{{post.data.title}}</th>
+          <th>{{post.data['excerpt']}}</th>
+          <th>{{post.data['category']['categoryName']}}</th>
+          <th>{{post.data['createAt']['seconds']|date}}</th>
+          <th><button class="btn bg-theme text-white">Details</button></th>
+          <th><button class="btn btn-warning" routerLink="/post/new" [queryParams]="{id:post.id}" >Edite</button></th>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
 </div>

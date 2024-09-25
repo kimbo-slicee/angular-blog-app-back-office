@@ -14,7 +14,6 @@ export class CategoryServiceService {
   getAllData(){
    return  this.angularFireStore.collection('categories').snapshotChanges().pipe(
       /* snapshotChanges return observable */
-
       map((actions)=>{
        return  actions.map(a=>{
           const  data:unknown=a.payload.doc.data()
