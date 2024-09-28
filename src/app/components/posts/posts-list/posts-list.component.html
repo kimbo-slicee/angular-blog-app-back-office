@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="row" >
+  <div class="row">
     <div class="col-md-12">
       <div class="card box-shadow bg-secondary-theme">
         <div class="card-body text-center">
@@ -11,6 +11,7 @@
       </div>
     </div>
   </div>
+  <app-loader *ngIf="showLoader"></app-loader>
   <ng-container *ngIf="posts.length==0" class="text-center">
     <div class="d-flex flex-column align-items-center mt-4 box-shadow">
       <img src="assets/empty.jpeg" alt="There's No Posts" width="736" height="552">
@@ -20,7 +21,7 @@
     <div class="col-md-12 m-auto">
       <table class="table box-shadow table-borderless">
         <thead>
-        <tr >
+        <tr>
           <th class="bg-success-subtle" scope="col">id</th>
           <th class="bg-success-subtle">Image</th>
           <th class="bg-success-subtle">title</th>
@@ -38,16 +39,16 @@
           <th>{{post.data['excerpt']}}</th>
           <th>{{post.data['category']['categoryName']}}</th>
           <th>{{post.data['createAt']['seconds']|date}}</th>
-          <th><button class="btn bg-theme text-white" routerLink="/postDetails">Details</button></th>
-          <th><button class="btn btn-warning" routerLink="/new" [queryParams]="{id:post.id}" >Edite</button></th>
+          <th><button class="btn bg-theme text-white">Details</button></th>
+          <th><button class="btn btn-warning" routerLink="/new" [queryParams]="{id:post.id}">Edite
+          </button></th>
           <th><button class="btn btn-danger" (click)="deletePost(post.id,post.data['postImagePath'])">Delete</button></th>
         </tr>
         </tbody>
       </table>
     </div>
   </div>
-  <app-post-details *ngIf="false"></app-post-details>
-  <div class="row ">
+  <div class="row">
     <div class="col-md-12 text-center d-flex justify-content-center">
       <nav aria-label="Page navigation">
         <ul class="pagination" >

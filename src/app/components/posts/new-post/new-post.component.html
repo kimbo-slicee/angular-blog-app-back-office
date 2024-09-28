@@ -1,14 +1,11 @@
 <div class="container">
-<!--  <div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="reactiveForm.invalid">-->
-<!--    <strong>Holy guacamole!</strong> You should check in on some of those fields below.-->
-<!--    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" ></button>-->
-<!--  </div>-->
   <div class="rwo">
     <div class="col-md-12 text-center">
       <h3 class="text-theme-primary ">{{isEditeMode?'Edite Post':'Add New Post'}}</h3>
       <p class="mb-5">You Can {{isEditeMode?'Edite':'Add'}} your post Here</p>
     </div>
   </div>
+  <app-loader *ngIf="isLoading"></app-loader>
   <form [formGroup]="reactiveForm" (ngSubmit)="submitForm()" [ngClass]="{'.was-validated':reactiveForm.valid}" >
     <div class="row">
       <div class="col-md-7">

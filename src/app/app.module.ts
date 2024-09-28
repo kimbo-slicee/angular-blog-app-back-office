@@ -19,7 +19,8 @@ import {NgOptimizedImage} from "@angular/common";
 import {AngularEditorModule} from "@kolkov/angular-editor";
 import {HttpClientModule} from "@angular/common/http";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
-import { PostDetailsComponent } from './components/post-details/post-details.component';
+import { PostDetailsComponent } from './components/posts/post-details/post-details.component';
+import { LoaderComponent } from './layouts/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PostDetailsComponent } from './components/post-details/post-details.com
     PostsListComponent,
     NewPostComponent,
     PostDetailsComponent,
+    LoaderComponent,
 
   ],
   imports: [

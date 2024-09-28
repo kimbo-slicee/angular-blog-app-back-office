@@ -1,39 +1,38 @@
 
 <div class="container">
-  <div class="alert alert-danger w-25
- position-relative top-100 start-50 d-flex justify-content-between
- translate-middle" role="alert" *ngIf="categoryForm.touched && categoryForm.invalid">
-    <p>Category Field is Required</p>
-    <i class="fa-solid fa-xmark"></i>
-  </div>
   <div class="row">
     <div class="col-md-12 bg-secondary-theme p-5 box-shadow">
       <h3 class="text-center">{{editMode?"Edite Category":"New Category"}}</h3>
-      <p class="text-center mb-5">You Can Add New Categories From Here...</p>
+      <p class="text-center mb-5">You Can Add or Edite Your Categories From Here...</p>
       <form class="d-flex text-center" #categoryForm="ngForm" (ngSubmit)="addOrEditeCategory(categoryForm)">
         <div class="form-group col-md-10">
           <input type="text" class="form-control box-shadow"
                  placeholder="Add New CateGory"
                  ngModel name="category" required
-                 [ngClass]="{'is-invalid':categoryForm.touched && categoryForm.invalid}"
+                 [ngClass]="{'is-invalid':categoryForm.touched && categoryForm.invalid,
+                 'is-valid':categoryForm.touched && !categoryForm.invalid}"
           >
         </div>
         <div class="col-md-2">
           <button
-            class="btn btn-block btn-info mb-3 btn-them"
+            class="mb-3"
             type="submit"
-            [disabled]="categoryForm.invalid"><i class="fa-solid fa-plus mx-2"></i>{{editMode?"Edite Category":"New Category"}}</button>
+            [disabled]="categoryForm.invalid">
+            {{editMode?"Edite Category":"New Category"}}
+          </button>
         </div>
       </form>
     </div>
   </div>
   <div class="mt-5 w-75 m-auto d-flex justify-content-center flex-column ">
-  <table class="table text-center">
+  <table class="table table-borderless text-center box-shadow">
     <thead>
-    <tr class="table-info">
-      <th  scope="col">Id</th>
-      <th scope="col">Category</th>
+    <tr>
+      <th>Id</th>
+      <th>Category</th>
       <th>Actions</th>
+      <th>Created At</th>
+      <th>Posts</th>
     </tr>
     </thead>
     <tbody>
@@ -41,26 +40,35 @@
       <td>{{i+1}}</td>
       <td>{{category.data['category']}}</td>
       <td>
-      <button class="btn btn-warning mx-2"
-                  (click)="onEdite(category.id,category.data['category'])">Edit<i class="fa-solid fa-pen-to-square mx-2"></i></button>
-      <button class="btn btn-danger" (click)="delete(category.id,category.data['category'])">Delete<i class="fa-solid fa-trash mx-2"></i></button>
-
+      <button class="btn btn-warning mx-2" (click)="onEdite(category.id,category.data['category'])">Edit<i
+        class="fa-solid fa-pen-to-square mx-2"></i></button>
+        <button class="btn btn-danger" (click)="delete(category.id,category.data['category'])">Delete<i class="fa-solid fa-trash mx-2"></i></button>
       </td>
     </tr>
     </tbody>
   </table>
-    <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center bg-info-subtle">
-        <li class="page-item disabled">
-          <a class="page-link">Previous</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">Next</a>
-        </li>
-      </ul>
-    </nav>
   </div>
+  <div class="row text-center d-flex justify-content-between flex-row">
+    <div class="col-md-4">
+      <button class="btn btn-them" routerLink="/">
+        <i class="fa-solid fa-arrow-left"></i>
+        Back
+      </button>
+    </div>
+      <div class="col-md-8 ">
+        <nav aria-label="Page navigation">
+          <ul class="pagination" >
+            <li class="page-item disabled ">
+              <a class="page-link bg-success-subtle ">Previous</a>
+            </li>
+            <li class="page-item "><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link bg-success-subtle">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
 </div>
