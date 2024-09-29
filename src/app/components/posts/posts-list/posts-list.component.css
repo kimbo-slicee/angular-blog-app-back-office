@@ -1,3 +1,20 @@
 .bg-theme:hover{
   background-color:var(--primary-color) ;
 }
+.table-head th{
+  background-color: var(--secondary-color);
+  color: #026467;
+  text-align: center;
+}
+img{
+  width: 200px;
+  height: 100px;
+  position: relative;
+  top: 0;
+}
+.showMore{
+  color: #026467;
+  font-size: 3em;
+  cursor: pointer;
+}
+

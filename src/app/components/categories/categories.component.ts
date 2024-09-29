@@ -1,7 +1,7 @@
-import {Component, inject, OnInit, signal, ViewChild} from '@angular/core';
+import {Component, inject, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {CategoryServiceService} from "../../services/category-service.service";
-import {Category} from "../../models/catecorie.model";
+import {Category} from "../../models/category.model";
 import {ToastrService} from "ngx-toastr";
 import {SwalPortalTargets} from "@sweetalert2/ngx-sweetalert2";
 
@@ -14,7 +14,7 @@ export class CategoriesComponent implements OnInit{
   private categoryServices:CategoryServiceService=inject(CategoryServiceService);
   private toastrService:ToastrService=inject(ToastrService);
   public readonly swalTargets:SwalPortalTargets= inject(SwalPortalTargets);
-  public categoriesList!:any;
+  public categoriesList!:any[];
   private id!:string;
   @ViewChild("categoryForm")form!:NgForm;
   public editMode:boolean=false;
@@ -27,6 +27,7 @@ export class CategoriesComponent implements OnInit{
   addOrEditeCategory(categoryForm:NgForm) {
       let category:Category={
         category:categoryForm.value.category,
+        createAt:Date.now()
       }
     if(!this.editMode){
       this.categoryServices.postCategory(category).then((docRef)=>{
@@ -60,17 +61,5 @@ export class CategoriesComponent implements OnInit{
       })
   }
 
-  public saveFile(fileName: string): void {
-    // ... save file
-  }
-
-  public handleDenial(): void {
-    // ... don't save file and quit
-  }
-
-  public handleDismiss(dismissMethod: string): void {
-    // dismissMethod can be 'cancel', 'overlay', 'close', and 'timer'
-    // ... do something
-  }
 
 }

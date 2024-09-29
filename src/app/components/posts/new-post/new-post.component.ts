@@ -74,11 +74,12 @@ export class NewPostComponent implements OnInit{
     this.isEditeMode=false;
   }
   editePost(){
-    this.isEditeMode=this.isEditeMode=true
+    this.isLoading=true;
+    this.isEditeMode=true
     this.activatedRoute.queryParamMap.subscribe((data)=>{
     let id:string|null=data.get('id')
     if(id) this.postServices.fetchOnePost(id).subscribe((post:any)=>{
-    this.isEditeMode=false
+    this.isLoading=false;
     this.id=id;
     this.setFromValue(post);
       });
@@ -132,7 +133,7 @@ export class NewPostComponent implements OnInit{
       isDefeater: false,
       views: 0,
       status: 'new',
-      createAt: new Date(),
+      createAt: Date.now(),
     }
   }
 

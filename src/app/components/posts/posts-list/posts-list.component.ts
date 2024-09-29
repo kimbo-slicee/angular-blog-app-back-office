@@ -1,6 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 import {PostService} from "../../../services/post.service";
 import {ToastrService} from "ngx-toastr";
+import {PostModel} from "../../../models/post.model";
 
 @Component({
   selector: 'app-posts-list',
@@ -9,31 +10,53 @@ import {ToastrService} from "ngx-toastr";
 })
 export class PostsListComponent implements OnInit{
   private postServices:PostService=inject(PostService);
-  private toasterService=inject(ToastrService)
+  private toasterService=inject(ToastrService);
   public posts:Array<any>=[];
-  public showLoader:boolean=false;
-  public lastVisibleDoc: any;
-  public limit: number = 5; // Items per page
+  public limit: number = 5;
+  public isLoading:boolean=false;
+  public post!:PostModel;
+  public showPostDetails:boolean=false;
     ngOnInit(): void {
       this.postList()
     }
+    showPostDetailsComponent($event:boolean){
+      this.showPostDetails=$event;
+    }
 
   private postList(){
-    this.showLoader=true;
-    this.postServices.fetchAllPosts(this.limit).subscribe({
-      next:(data)=>{
-        this.showLoader=false
-        this.posts=data
-      }});
+    this.isLoading=true;
+    this.postServices.fetchAllPosts(this.limit).subscribe((res)=>{
+    this.posts=res;
+    this.isLoading=false;
+    })
   }
   /*Remove Post From DataBase */
+
+  loadMoreData() {
+    this.isLoading = true;
+    this.postServices.getMoreData(this.limit).subscribe(res => {
+      this.posts = [...this.posts, ...res];
+      console.log(this.posts)
+      this.isLoading = false;
+      });
+  }
+
   deletePost(id:string, datum: any) {
-    this.showLoader=true;
+    this.isLoading=true;
     this.postServices.deleteImage(id,datum).then(()=>{
-    this.showLoader=false
-    this.toasterService.success("Post Deleted Succeed Fully ✔")
+    this.isLoading=false
+    this.toasterService.info("Post Deleted Succeed Fully ✔")
     }
     );
   }
+
+  showDetails(id:string) {
+    this.showPostDetails=true;
+    this.postServices.fetchOnePost(id).subscribe((data)=>{
+      this.post=data;
+      console.log(this.post)
+    })
+  }
+
 
 }

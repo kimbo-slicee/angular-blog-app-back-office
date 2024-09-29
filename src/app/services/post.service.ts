@@ -3,10 +3,12 @@ import {AngularFireStorage} from "@angular/fire/compat/storage";
 import {PostModel} from "../models/post.model";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {map, Observable} from "rxjs";
+import {activate} from "@angular/fire/remote-config";
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
+  private lastDoc!:any
   constructor(
     private angularFireStorage:AngularFireStorage,
     private angularFireBase:AngularFirestore,
@@ -17,8 +19,9 @@ export class PostService {
    */
   fetchAllPosts(limit:number):Observable<any>{
     return this.angularFireBase.collection('posts',ref =>
-      ref.orderBy('createAt').limit(limit)).snapshotChanges().pipe(map((action)=>{
-      return action.map((e):{id:string,data:unknown}=>{
+      ref.orderBy('createAt').limit(limit)).snapshotChanges().pipe(map((res)=>{
+      this.lastDoc = res[res.length - 1]?.payload.doc
+      return res.map((e):{id:string,data:unknown}=>{
         const data:unknown =e.payload.doc.data();
         const id:string=e.payload.doc.id
         return  {id,data}
@@ -26,10 +29,15 @@ export class PostService {
     }))
   }
   /**/
-  getMoreData(lastDoc: any, limit: number): Observable<any> {
-    return this.angularFireBase.collection('your-collection-name', ref =>
-      ref.orderBy('createdAt').startAfter(lastDoc).limit(limit)
-    ).snapshotChanges();
+  getMoreData(limit: number): Observable<any> {
+    return this.angularFireBase.collection('posts', ref =>
+      ref.orderBy('createAt').startAfter(this.lastDoc).limit(limit)
+    ).snapshotChanges().pipe(map((res)=>{
+      return res.map((e)=>{
+        this.lastDoc = res[res.length - 1]?.payload.doc || this.lastDoc;
+        return  {id:e.payload.doc.id, data:e.payload.doc.data()}
+      })
+    }))
   }
     async upLoadImage(image: File, post: PostModel, addOrUpdateToggle: boolean, id: string): Promise<any> {
     const filePath: string = `Pictures/${Date.now()}`
@@ -47,7 +55,7 @@ export class PostService {
    savePost(post:PostModel){
     this.angularFireBase.collection('posts').add(post).then().catch().finally();
   }
-  fetchOnePost(id:string){
+  fetchOnePost(id:string):Observable<any>{
     return this.angularFireBase.doc(`posts/${id}`).valueChanges()
   }
   updatePost(id:string,updatedPost:PostModel){

@@ -1,11 +1,24 @@
-<div class="post-details-Container">
-  <div class="postDetails box-shadow">
-    <div class="card">
-      <img src="../../../../assets/1.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+  <div *ngIf="post" class="post-details-Container">
+    <div class="postDetails">
+      <div class="card mb-3 col-md-12 container p-4 box-shadow">
+      <i class="fa-solid fa-x" (click)="showPost()"></i>
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img ngSrc="{{post.postImagePath}}"
+                 class="img-fluid rounded-start p-2" alt="post image" fill="..." style="max-width: 250px">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body ">
+              <h5 class="card-title">Post Title: {{post.title | uppercase}}</h5>
+              <p class="text-dark">{{post.excerpt}}<br><small class="text-danger">Created At:{{post.createAt | date}}
+              </small></p>
+              <span class="text-success mx-2"><i class="fa-regular fa-eye mx-1"></i>{{post.views}} </span>
+              <span class="text-danger mx-2"><i class="fa-regular fa-heart mx-1"></i>{{post.views}}</span>
+              <span class="text-info mx-2"><i class="fa-regular fa-comment mx-1"></i>{{post.views}} </span>
+<!--              <span>isFeature: {{post.isDefeater}} </span>-->
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
   </div>
-</div>
+  </div>

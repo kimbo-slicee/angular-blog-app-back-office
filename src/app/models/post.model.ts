@@ -1,4 +1,4 @@
-import {Category} from "./catecorie.model";
+import {Category} from "./category.model";
 
 export interface PostModel {
   id?:string;
@@ -14,6 +14,6 @@ export interface PostModel {
   isDefeater:boolean;
   views:number;
   status:string;
-  createAt:Date
+  createAt:number
 
 }

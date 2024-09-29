@@ -30,32 +30,41 @@
     <tr>
       <th>Id</th>
       <th>Category</th>
-      <th>Actions</th>
       <th>Created At</th>
       <th>Posts</th>
+      <th>Actions</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let category of categoriesList, let i=index">
       <td>{{i+1}}</td>
       <td>{{category.data['category']}}</td>
+      <td>{{category.data['createAt']|date:'MMM d, yyyy at hh:mm a'}}</td>
+      <td>
+        <select class="form-select dropdown-center" aria-label="Default select example">
+          <option selected>Open this select menu</option>
+          <option value="1">One</option>
+          <option value="2">Two</option>
+          <option value="3">Three</option>
+        </select>
+      </td>
       <td>
       <button class="btn btn-warning mx-2" (click)="onEdite(category.id,category.data['category'])">Edit<i
         class="fa-solid fa-pen-to-square mx-2"></i></button>
         <button class="btn btn-danger" (click)="delete(category.id,category.data['category'])">Delete<i class="fa-solid fa-trash mx-2"></i></button>
+        <button class="btn btn-them mx-2" (click)="delete(category.id,category.data['category'])">Details
+          <i class="fa-solid fa-circle-info"></i></button>
       </td>
     </tr>
     </tbody>
   </table>
   </div>
-  <div class="row text-center d-flex justify-content-between flex-row">
-    <div class="col-md-4">
-      <button class="btn btn-them" routerLink="/">
-        <i class="fa-solid fa-arrow-left"></i>
-        Back
-      </button>
+  <div class="container pagination-section">
+    <div>
+      <button class="btn btn-them back" routerLink="/">
+        <i class="fa-solid fa-arrow-left mx-2"></i>Back</button>
     </div>
-      <div class="col-md-8 ">
+      <div>
         <nav aria-label="Page navigation">
           <ul class="pagination" >
             <li class="page-item disabled ">

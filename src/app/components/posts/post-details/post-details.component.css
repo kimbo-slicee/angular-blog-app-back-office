@@ -7,13 +7,18 @@
    right: 0;
    bottom: 0;
    background-color: rgba(0,0,0,0.3);
-   z-index: 5;
+   z-index: 1;
  }
 .postDetails{
-  position: absolute;
-  z-index: 10;
-  padding: 10px 25px;
-  transition: 1s;
-
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 50%;
+}
+.fa-xmark{
+  font-size: 20px;
+  cursor: pointer;
+  color: #026467;
 }
 
