@@ -1,0 +1,39 @@
+h2{
+  text-transform: uppercase;
+  color: #026467;
+}
+
+.table{
+  font-size: 1rem;
+}
+
+thead tr th{
+  background-color: #e5f5ea;
+  color: #026467;
+}
+tr td{
+}
+img{
+  border-radius: 50%;
+  border:1px solid #026467;
+  padding: 2px;
+}
+td span {
+  padding: 3px;
+  text-decoration: none;
+}
+td a{
+ text-decoration: none;
+ color: #026467;
+ background-color: #e5f5ea;
+ padding: 5px;
+ margin: 0 5px 0 5px ;
+ border-radius: 50%;
+ font-size: 18px;
+ cursor: pointer;
+}
+
+
+
+
+

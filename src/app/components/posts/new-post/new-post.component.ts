@@ -5,11 +5,10 @@ import {PostModel} from "../../../models/post.model";
 import {PostService} from "../../../services/post.service";
 import {ActivatedRoute} from "@angular/router";
 import {ToastrService} from "ngx-toastr";
-
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
-  styleUrl: './new-post.component.css'
+  styleUrl: './new-post.component.css',
 })
 export class NewPostComponent implements OnInit{
   public reactiveForm!:FormGroup;
@@ -23,8 +22,9 @@ export class NewPostComponent implements OnInit{
   public file:File|string="assets/back-end-pic.jpeg"
   constructor(private categoryService:CategoryServiceService,
               private postServices:PostService,
-              private activatedRoute:ActivatedRoute
-              ,private toastrService:ToastrService){}
+              private activatedRoute:ActivatedRoute,
+              private toastrService:ToastrService
+  ){}
   ngOnInit(): void {
     this.categoryService.getAllData().subscribe(categories => this.categoryList = categories);
     this.reactiveForm = this.formInitializer()
@@ -136,6 +136,5 @@ export class NewPostComponent implements OnInit{
       createAt: Date.now(),
     }
   }
-
 
 }

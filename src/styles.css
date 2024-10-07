@@ -10,9 +10,7 @@
 
 body{
   font-family: 'Roboto','sans-serif';
-  font-size: 14px;
   color:var(--body-text-color);
-  display: contents;
 }
 .site-logo{
   border-radius: 20px;

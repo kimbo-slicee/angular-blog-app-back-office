@@ -16,7 +16,6 @@ import {SweetAlert2Module} from "@sweetalert2/ngx-sweetalert2";
 import {NewPostComponent} from "./components/posts/new-post/new-post.component";
 import {PostsListComponent} from "./components/posts/posts-list/posts-list.component";
 import {NgOptimizedImage} from "@angular/common";
-import {AngularEditorModule} from "@kolkov/angular-editor";
 import {HttpClientModule} from "@angular/common/http";
 import {AngularFireStorageModule} from "@angular/fire/compat/storage";
 import { PostDetailsComponent } from './components/posts/post-details/post-details.component';
@@ -24,6 +23,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import {SharedModule} from "./shared/shared.module";
 import {AuthModule} from "./auth/auth.module";
 import {RouterModule} from "@angular/router";
+import {UserModule} from "./users/user.module";
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,11 +35,12 @@ import {RouterModule} from "@angular/router";
     NewPostComponent,
     PostDetailsComponent,
     NotFoundComponent,
-
   ],
   imports: [
     BrowserModule,
     AuthModule,/*import AuthModule Before AppRoutingModule to ride all routers in Auth Module */
+    SharedModule,
+    UserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
@@ -49,11 +50,11 @@ import {RouterModule} from "@angular/router";
     BrowserAnimationsModule,
     SweetAlert2Module.forRoot(),
     NgOptimizedImage,
-    AngularEditorModule,
     HttpClientModule,
     AngularFireStorageModule,
-    SharedModule,
-    RouterModule
+    RouterModule,
+
+
 
 
   ],

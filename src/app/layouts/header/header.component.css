@@ -5,3 +5,145 @@ header{
   text-decoration: none;
   font-size: 1.5em;
 }
+/*Login Logout*/
+img{
+  border-radius: 50%;
+  border: 1px solid #026467;
+  padding: 5px;
+}
+.fa-right-from-bracket{
+  font-size: 1.5rem;
+}
+
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  background-color: #e5f5ea;
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: #026467;
+}
+/* text */
+.text {
+  position: absolute;
+  right: 0;
+  width: 0;
+  opacity: 0;
+  color: #026467;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+}
+/* hover effect on button width */
+.Btn:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.Btn:hover .sign {
+  width: 30%;
+  transition-duration: .3s;
+  padding-left: 20px;
+}
+
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.Btn:active {
+  transform: translate(2px ,2px);
+}
+
+/*Search dev*/
+div.search{
+  position: relative;
+  background-color: #e5f5ea;
+  border-radius: 10px;
+  border: 1px solid #e5f5ea;
+
+}
+div.search::before{
+  content:'';
+  height: 100%;
+  width: 20%;
+  background-color:#e5f5ea;
+  position: absolute;
+  left:80%;
+  border-top-right-radius:10px;
+  border-bottom-right-radius:10px;
+
+}
+input[type="text"]{
+  font-size: 1.5rem;
+  outline: none;
+  width: 100%;
+  padding: 5px 15px;
+  border:none;
+  border-radius: 10px;
+  caret-color: #026467;
+  padding-left:12%;
+
+}
+.fa-magnifying-glass{
+  position: absolute;
+  font-size: 1.5em;
+  color: #026467;
+  left: 3%;
+  top: 31%;
+  transition:all .5s linear;
+  cursor:pointer
+
+}
+div.search:after{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background-color: #e5f5ea;
+  left: 10%;
+}
+span.search{
+  color: #026467;
+  padding: 0 5px;
+  z-index:1;
+  position: absolute;
+  left:82%;
+  font-size:1.5em;
+  top:20%;
+  font-weight:300;
+
+}
+.fa-moon,.fa-sun{
+  color: #026467;
+  font-size:1.5rem ;
+  margin-right: 10px;
+  cursor: pointer;
+  }
+

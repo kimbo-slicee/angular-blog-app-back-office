@@ -1,1 +1,35 @@
-<h3 class="text-success text-center">Login Component </h3>
+ <div class="col-md-5 container my-5">
+  <div class="card p-5 box-shadow bg-secondary-theme">
+    <div class="card-body">
+      <div class="text-center">
+        <h3 class="text-theme-primary">Login</h3>
+        <p>Login to your Admin Account </p>
+      </div>
+      <form class="d-flex flex-column" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <div class="mb-3 position-relative">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control box-shadow"
+                 #email='ngModel'
+                 id="exampleInputEmail1" aria-describedby="emailHelp"
+                 name="email" ngModel required email
+                 [ngClass]="{'.is-valid':email.valid && email.touched , '.is-invalid':email.touched && email.invalid}"
+          >
+          <span> <i class="fa-solid fa-at"></i></span>
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3 position-relative">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="password" class="form-control box-shadow py-3"
+                 required id="password" #password name="password" ngModel>
+          <span (click)="switchEye(password.type)">
+            <i  class="fa-regular" [class]="password.type==='password'?'fa-eye-slash':'fa-eye'"></i></span>
+          <div id="passwordHelp" class="form-text">We'll never share your password with anyone else.</div>
+        </div>
+        <div>
+        <button class=" btn btn-block btn-them p-2" [disabled]="loginForm.invalid "  type="submit">Login<i
+          class="fa-solid fa-right-to-bracket mx-2"></i></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

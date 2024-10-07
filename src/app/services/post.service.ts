@@ -50,8 +50,17 @@ export class PostService {
   /*Refactoring UPLoadPic Function: the main purpose of refactoring this function that's simplify  */
   upLoadPicturesToFireBase(image:File){
     const filePath:string=`post-pictures/${Date.now()}`
-    this.angularFireStorage.upload(filePath,image).snapshotChanges()
+    this.angularFireStorage.upload(filePath,image).snapshotChanges().subscribe((ref)=>{
+      console.log(ref)
+    })
   }
+   /*Get the path fo the image */
+  getPostImageRefFromFireBase(){
+
+  }
+
+
+
    savePost(post:PostModel){
     this.angularFireBase.collection('posts').add(post).then().catch().finally();
   }

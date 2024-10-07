@@ -1,0 +1,16 @@
+span{
+  color: #026467;
+  cursor: pointer;
+}
+span .fa-at{
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  font-size: 1.3em;
+}
+.fa-regular{
+  position: absolute;
+  top: 40%;
+  right: 3%;
+  font-size: 1.3em;
+}

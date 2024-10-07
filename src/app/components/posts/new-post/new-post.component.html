@@ -80,10 +80,11 @@
         <div class=" box-shadow p-2">
           <div class="form-group">
             <label>Content</label>
-            <angular-editor formControlName="content"
-                            placeholder="Add Your Content Here "
-                            [ngClass]="{'is-invalid':reactiveForm.get('content')?.touched && reactiveForm.get('content')?.invalid}"
-            ></angular-editor>
+            <label>
+<textarea formControlName="content" [style]="{ height: '320px' }"  placeholder="Add Your Content Here "
+          [ngClass]="{'is-invalid':reactiveForm.get('content')?.touched &&
+          reactiveForm.get('content')?.invalid}"></textarea>
+            </label>
             <small class="text-danger"
                    *ngIf="reactiveForm.get('content')?.touched && reactiveForm.get('content')?.invalid">Content
               Required</small>

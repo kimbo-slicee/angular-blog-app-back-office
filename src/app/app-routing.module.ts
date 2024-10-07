@@ -6,7 +6,6 @@ import {PostsListComponent} from "./components/posts/posts-list/posts-list.compo
 import {NewPostComponent} from "./components/posts/new-post/new-post.component";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
 const routes: Routes = [
-  {path:'',component:DashboardComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'categories',component:CategoriesComponent},
   {path:'posts',component:PostsListComponent},

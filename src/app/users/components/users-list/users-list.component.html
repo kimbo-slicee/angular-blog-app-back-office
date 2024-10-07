@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="col-md-10 container">
+      <h2>Manage Users Hire</h2>
+      <table class="table text-center mt-3">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>createAt</th>
+          <th>Phone</th>
+          <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users let i=index">
+          <td><img src="assets/nft1.jpg" alt="user-pic" width="50px" height="50px" class="mx-2">
+            First Admin
+            <span class="badge bg-info mx-1">manager</span>
+          </td>
+          <td>{{user.email}}</td>
+          <td>{{user.date | date}}</td>
+          <td>+212 07 010 012 30 </td>
+          <td class="">
+            <a class="edite bg-warning text-white" (click)="editUser(i,user)"><i class="fa-solid fa-user-pen "></i></a>
+            <a class="delete bg-danger text-white"
+               (click)="editUser(i,user)"><i class="fa-solid fa-user-xmark "></i></a>
+            <a class="add" (click)="editUser(i,user)"><i class="fa-solid fa-user-plus "></i></a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
