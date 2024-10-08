@@ -1,0 +1,106 @@
+.form-container{
+  position: fixed;
+  background-color: rgba(66, 66, 66, 0.5);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.new-user-Form{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 2%;
+  width: 60%;
+  transform: translate(-50%,-50%);
+  background-color: #e5f5ea;
+  box-shadow: 1px 0 0 #e5f5ea,-16px 0 0 #0000 ;
+  border-radius: 10px;
+
+}
+.image{
+  width: 100%;
+}
+img {
+  border-radius: 50%;
+  border: 2px solid #026467;
+  position: relative;
+}
+
+  input, select {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-bottom: 2px solid #026467;
+    width: 45%;
+    color: #026467;
+    font-size: 18px;
+  }
+
+  input[type='file'] {
+    background-color: transparent;
+    content: '\f055';
+  }
+
+  .from {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  .phoneNumber {
+    width: 45%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+
+  select {
+    width: 25%;
+    margin-right: 2%;
+    margin-top: 5%;
+    scroll-behavior: smooth;
+  }
+
+  .phone {
+    width: 100%;
+  }
+
+  input::placeholder {
+    color: #026467;
+    font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    text-transform: uppercase;
+  }
+
+.upload{
+  position: absolute;
+  cursor: pointer;
+  background-color: #026467;
+  border-radius: 50%;
+  z-index: 1;
+  top: 32%;
+  right: 39%;
+  border: 2px solid #e5f5ea;
+}
+input[type='file']{
+  position: absolute;
+  transform: scale(3);
+  opacity: 0;
+  outline: none;
+  border: none;
+}
+.upload>i{
+  color: #e5f5ea;
+}
+.submit{
+  width: 100%;
+  margin-top: 5%;
+}
+.submit>button{
+  padding: 5px 10px ;
+}
+

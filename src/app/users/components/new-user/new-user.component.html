@@ -1,1 +1,37 @@
-<p>new-user works!</p>
+<div class="form-container">
+  <div class="new-user-Form">
+    <div class="font-monospace text-center">
+      <div class="image mx-2">
+        <img [src]="src!=null?src:'assets/user.jpg'" width="200px" height="200px" alt="user-pic">
+        <button class="upload">
+        <input type="file" accept="image/*" placeholder="chose picture" (change)="uploadFile($event)">
+          <i [ngClass]="src==null?'fa-solid fa-camera':'fa-regular fa-circle-xmark'"></i>
+        </button>
+      </div>
+    </div>
+    <form class="from" [formGroup]="userReactiveForm" (ngSubmit)="onSubmit(userReactiveForm)">
+      <input type="text" class="name" placeholder="name" formControlName="name">
+      <input type="email" class="email" placeholder="email" formControlName="email">
+      <input type="text" class="password" placeholder="password" formControlName="password">
+      <input type="text" class="confirmPass" placeholder="confirm Password " formControlName="confirmPass">
+      <div class="phoneNumber">
+      <select class="text-theme-primary text-center position-relative" formControlName="codeNumber">
+        <option selected>+212</option>
+        <option value="{{phone.name}}"  *ngFor="let phone of phoneCodeList" >{{phone.phone}}</option>
+      </select>
+      <input type="text" class="phone" placeholder="phone" formControlName="phone">
+      </div>
+      <input type="date" class="date" formControlName="date">
+<!--      <i class="fa-solid fa-plus-minus"></i>-->
+      <select class="role" formControlName="role">
+        <option selected>Roles</option>
+        <option value="Admin">Admin</option>
+        <option value="Admin">Manager</option>
+        <option value="Admin">User</option>
+      </select>
+      <div class="submit">
+        <button class="btn btn-them">ADD <i class="fa-solid fa-user-plus mx-1"></i> </button>
+      </div>
+    </form>
+  </div>
+</div>
