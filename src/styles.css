@@ -5,6 +5,12 @@
   --secondary-color:#e5f5ea;
   --body-text-color:#596392;
   --navBar-footer-color:#f9f9f9;
+  /*Dark Mode*/
+  --dark-primary-color: #1E1E2F;    /* Dark navy blue */
+  --accent-color: #4E9CFF;         /* Neon blue */
+  --text-color: #E0E0E0;           /* Light gray */
+  --background-color: #121212;     /* Jet black */
+  --highlight-color: #FF007F;      /* Electric pink */
 }
 
 

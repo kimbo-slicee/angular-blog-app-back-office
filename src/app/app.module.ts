@@ -24,6 +24,7 @@ import {SharedModule} from "./shared/shared.module";
 import {AuthModule} from "./auth/auth.module";
 import {RouterModule} from "@angular/router";
 import {UserModule} from "./users/user.module";
+import { TruncatePipe } from './pipes/truncate.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import {UserModule} from "./users/user.module";
     NewPostComponent,
     PostDetailsComponent,
     NotFoundComponent,
+    TruncatePipe,
   ],
   imports: [
     BrowserModule,
