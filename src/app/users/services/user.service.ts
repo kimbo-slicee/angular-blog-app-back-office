@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {AngularFirestore} from "@angular/fire/compat/firestore";
 import {Observable} from "rxjs";
 import {AngularFireStorage} from "@angular/fire/compat/storage";
@@ -12,8 +11,20 @@ export class UserService {
   getAllUsers():Observable<any[]>{
   return  this.firestore.collection('users').valueChanges()
   }
+  // AddUser
+  /** -->[1]:Call FireStorage to store user picture
+   *  ---->[2]:Call fireStorage Again to get user picture URl
+   *  ------>[3]:Call FireStoreTo Add the new user in fire Store That Base
+   *  ------->:[4]:Call Adduser methode in userLise Component
+   *
+   * */
   uploadFile(){
     // this.fireStorage.upload()
+  }
+  // EditeUser
+  // RemoveUser
+  edite(id:string,user:any){
+
   }
 
 

@@ -20,6 +20,14 @@
   border-radius: 10px;
 
 }
+.fa-circle-xmark{
+  color: #026467;
+  font-size: 36px;
+  position: absolute;
+  right: -10px;
+  top: -8px;
+  cursor: pointer;
+}
 .image{
   width: 100%;
 }
@@ -75,16 +83,16 @@ img {
     font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     text-transform: uppercase;
   }
-
 .upload{
   position: absolute;
   cursor: pointer;
   background-color: #026467;
   border-radius: 50%;
   z-index: 1;
-  top: 32%;
-  right: 39%;
+  top: 30%;
+  right: 40%;
   border: 2px solid #e5f5ea;
+  font-size: 20px;
 }
 input[type='file']{
   position: absolute;
@@ -103,4 +111,59 @@ input[type='file']{
 .submit>button{
   padding: 5px 10px ;
 }
+.gender{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-around;
+  width: 40%;
+  margin-top: 3%;
+
+}
+
+.male,.female{
+ display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 10px 5px ;
+  width: 50%;
+  height:70%;
+  border: 2px solid #026467;
+  color: #026467;
+
+}
+.male,.female>label{
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-family: "Arabic Typesetting",Arial,sans-serif;
+}
+.male-container,.female-container{
+  position: relative;
+  width: 100%;
+}
+
+input[type='radio']{
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+}
+
+input[type='radio']:checked~div{
+  background-color: #026467;
+  color:#e5f5ea ;
+  box-shadow: 0 0 12px #026467;
+}
+input[type='radio']:hover~div{
+  box-shadow: 0 0 12px #026467;
+}
+
+
+
+
+
 

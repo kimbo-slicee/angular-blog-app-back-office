@@ -10,14 +10,16 @@
       </div>
     </div>
     <form class="from" [formGroup]="userReactiveForm" (ngSubmit)="onSubmit(userReactiveForm)">
+      <i class="fa-solid fa-circle-xmark" (click)="closeNewUserComponent()"></i>
       <input type="text" class="name" placeholder="name" formControlName="name">
       <input type="email" class="email" placeholder="email" formControlName="email">
       <input type="text" class="password" placeholder="password" formControlName="password">
       <input type="text" class="confirmPass" placeholder="confirm Password " formControlName="confirmPass">
       <div class="phoneNumber">
       <select class="text-theme-primary text-center position-relative" formControlName="codeNumber">
-        <option selected>+212</option>
-        <option value="{{phone.name}}"  *ngFor="let phone of phoneCodeList" >{{phone.phone}}</option>
+        <option value="+212">+212</option>
+        <option value="+1">+1</option>
+        <option value="+44">+44</option>
       </select>
       <input type="text" class="phone" placeholder="phone" formControlName="phone">
       </div>
@@ -29,8 +31,24 @@
         <option value="Admin">Manager</option>
         <option value="Admin">User</option>
       </select>
+      <div class="gender">
+        <div class="male-container">
+        <input type="radio" value="Male" formControlName="gender">
+        <div class="male">
+          <i class="fa-solid fa-person mx-2"></i>
+          <label>Male</label>
+        </div>
+        </div>
+          <div class="female-container">
+        <input type="radio" value="Female" formControlName="gender">
+        <div class="female">
+         <i class="fa-solid fa-person-dress mx-2"></i>
+        <label>Female</label>
+          </div>
+        </div>
+      </div>
       <div class="submit">
-        <button class="btn btn-them">ADD <i class="fa-solid fa-user-plus mx-1"></i> </button>
+        <button class="btn btn-them" >ADD<i class="fa-solid fa-user-plus mx-1"></i></button>
       </div>
     </form>
   </div>

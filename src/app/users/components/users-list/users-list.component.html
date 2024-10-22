@@ -1,5 +1,5 @@
 <div class="container">
-  <app-new-user *ngIf="true"></app-new-user>
+  <app-new-user *ngIf="showUserAddUserFrom" (closeEventEmitter)="toggle($event)"></app-new-user>
   <div class="row text-center">
     <div class="col-md-10 container">
       <h2>Manage Users Hire</h2>
@@ -23,10 +23,10 @@
           <td>{{user.date | date}}</td>
           <td>+212 07 010 012 30 </td>
           <td class="">
-            <a class="edite bg-warning text-white" (click)="editUser(i,user)"><i class="fa-solid fa-user-pen "></i></a>
-            <a class="delete bg-danger text-white"
-               (click)="editUser(i,user)"><i class="fa-solid fa-user-xmark "></i></a>
-            <a class="add" (click)="editUser(i,user)"><i class="fa-solid fa-user-plus "></i></a>
+            <button class="btn btn-outline-success"
+                    (click)="editUser(user.id,user)"><i class="fa-solid fa-user-pen "></i></button>
+            <button class="btn btn-outline-danger mx-2" ><i class="fa-solid fa-user-xmark"></i></button>
+<!--            <button class="btn btn-outline-success" (click)="showUserAddUserFrom=true"><i class="fa-solid fa-user-plus "></i></button>-->
           </td>
         </tr>
         </tbody>

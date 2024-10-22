@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 
@@ -8,23 +8,17 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
   styleUrl: './new-user.component.css'
 })
 export class NewUserComponent implements OnInit{
- phoneCodeList:any[]=[];
  public src :File|null;
  userReactiveForm:FormGroup;
+ dontShowNewUserComponent:boolean=false;
+  @Output() closeEventEmitter=new EventEmitter<boolean>
+  closeNewUserComponent(){
+   this.closeEventEmitter.emit(this.dontShowNewUserComponent);
+  }
  ngOnInit(): void {
     this.createForm();
-    this.readJson()
 
  }
- /*Read Json Data*/
-  private readJson(){
-   const jsonPhoneCodes:Promise<any>=import((`../../../../../json/phone.codes.json`));
-    jsonPhoneCodes.then((res)=>{
-      for (const resKey in res) {
-        this.phoneCodeList.push(res[resKey])
-      }
-    })
-  }
   private createForm(){
   this.userReactiveForm=new FormGroup({
     name:new FormControl('',[Validators.required,Validators.minLength(5)]),
@@ -34,7 +28,8 @@ export class NewUserComponent implements OnInit{
     codeNumber:new FormControl('+212'),
     phone:new FormControl(''),
     date:new FormControl(null),
-    role:new FormControl('Roles')
+    role:new FormControl('Roles'),
+    gender:new FormControl('Male')
 
   })
   }
@@ -52,7 +47,8 @@ export class NewUserComponent implements OnInit{
     }
 
   }
-  onSubmit(userFrom: any) {
-
+  onSubmit(userFrom: FormGroup) {
+    console.log(userFrom)
   }
+
 }

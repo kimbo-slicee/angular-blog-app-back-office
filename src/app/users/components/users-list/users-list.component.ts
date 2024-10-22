@@ -7,6 +7,7 @@ import {UserService} from "../../services/user.service";
   styleUrl: './users-list.component.css'
 })
 export class UsersListComponent implements OnInit{
+  public showUserAddUserFrom:boolean=false;
   private usersService:UserService=inject(UserService);
   users: any[] = [];
   ngOnInit(): void {
@@ -17,8 +18,11 @@ export class UsersListComponent implements OnInit{
       }
     })
   }
+  toggle($event: boolean){
+    this.showUserAddUserFrom=$event;
+  }
 
-  editUser(i: number, user: any) {
-
+  editUser(id:string,user:any) {
+    this.usersService.edite(id,user);
   }
 }
